@@ -69,6 +69,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "home.advanced": "Advanced",
     "home.expert": "Expert",
     "home.intermediate": "Intermediate",
+    "home.scroll": "scroll",
 
     // About
     "about.badge": "// about.tsx",
