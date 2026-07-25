@@ -34,6 +34,10 @@ export const translations: Record<Lang, Record<string, string>> = {
     "footer.quicklinks": "Quick Links",
     "footer.connect": "Connect",
     "footer.rights": "Helen Langari. Built with",
+<<<<<<< HEAD
+=======
+    "footer.status": " Available for opportunities",
+>>>>>>> c07ddef9104b696d265dc6e531a6ef03aef09797
 
     // Home
     "home.available": "Available for opportunities",
@@ -372,7 +376,12 @@ export const translations: Record<Lang, Record<string, string>> = {
       "توسعه‌دهنده فرانت‌اند متخصص در React، Next.js و TypeScript. سازنده تجربیات دیجیتال مدرن.",
     "footer.quicklinks": "لینک‌های سریع",
     "footer.connect": "ارتباط",
+<<<<<<< HEAD
     "footer.rights": "هلن لنگری. ساخته شده با  ",
+=======
+    "footer.rights": "هلن لنگری. ساخته شده با",
+    "footer.status": " آماده فرصت‌های جدید",
+>>>>>>> c07ddef9104b696d265dc6e531a6ef03aef09797
 
     // Home
     "home.available": "آماده همکاری",
