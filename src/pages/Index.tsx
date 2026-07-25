@@ -148,8 +148,6 @@ const Index = () => {
               <div className="flex items-center gap-4">
                 {[
                   { icon: Github, href: "https://github.com" },
-                  { icon: Linkedin, href: "https://linkedin.com" },
-                  { icon: Twitter, href: "https://twitter.com" },
                 ].map(({ icon: Icon, href }, i) => (
                   <a
                     key={i}
