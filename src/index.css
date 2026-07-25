@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 25% 5%;
+    --foreground: 210 40% 96%;
+
+    --card: 230 20% 8%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 230 20% 8%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 190, 36%, 50%;
+    --primary-foreground: 230 25% 5%;
+
+    --secondary: 264 80% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 230 15% 14%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 264 80% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 230 15% 16%;
+    --input: 230 15% 16%;
+    --ring: 186 100% 42%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 230 25% 5%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 186 100% 42%;
+    --sidebar-primary-foreground: 230 25% 5%;
+    --sidebar-accent: 230 15% 14%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 230 15% 16%;
+    --sidebar-ring: 186 100% 42%;
+
+    --cyan: 186 100% 42%;
+    --purple: 264 80% 60%;
+    --emerald: 160 84% 39%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Vazirmatn', sans-serif;
+  }
+
+  [dir='rtl'] body,
+  [dir='rtl'] {
+    font-family: 'Vazirmatn', 'Inter', sans-serif;
+  }
+
+  code, pre, .mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(230 25% 5%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(186 100% 42% / 0.4);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(186 100% 42% / 0.7);
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(186 100% 42%), hsl(264 80% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-emerald {
+    background: linear-gradient(135deg, hsl(160 84% 39%), hsl(186 100% 42%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: hsl(230 20% 8% / 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(186 100% 42% / 0.1);
+  }
+
+  .glass-hover {
+    transition: all 0.3s ease;
+  }
+
+  .glass-hover:hover {
+    background: hsl(230 20% 10% / 0.8);
+    border-color: hsl(186 100% 42% / 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px hsl(186 100% 42% / 0.1);
+  }
+
+  .glow {
+    box-shadow: 0 0 30px hsl(186 100% 42% / 0.2), 0 0 60px hsl(264 80% 60% / 0.1);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 20px hsl(186 100% 42% / 0.4);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, hsl(186 100% 42%), hsl(264 80% 60%));
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px hsl(186 100% 42% / 0.3);
+  }
+
+  .btn-outline {
+    border: 1px solid hsl(186 100% 42% / 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline:hover {
+    border-color: hsl(186 100% 42%);
+    background: hsl(186 100% 42% / 0.1);
+    transform: translateY(-2px);
+  }
+
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 lg:py-24;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px hsl(186 100% 42% / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(186 100% 42% / 0.6), 0 0 60px hsl(264 80% 60% / 0.2); }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.typing-animation {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid hsl(186 100% 42%);
+  animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+}
+
+.progress-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: hsl(230 15% 14%);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, hsl(186 100% 42%), hsl(264 80% 60%));
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mesh-gradient {
+  background: 
+    radial-gradient(ellipse at 20% 50%, hsl(186 100% 42% / 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, hsl(264 80% 60% / 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 80%, hsl(160 84% 39% / 0.05) 0%, transparent 60%);
+}
+
+.tag {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  background: hsl(186 100% 42% / 0.1);
+  border: 1px solid hsl(186 100% 42% / 0.2);
+  color: hsl(186 100% 42%);
+}
+
+.tag-purple {
+  background: hsl(264 80% 60% / 0.1);
+  border-color: hsl(264 80% 60% / 0.2);
+  color: hsl(264 80% 70%);
+}
+
+.tag-emerald {
+  background: hsl(160 84% 39% / 0.1);
+  border-color: hsl(160 84% 39% / 0.2);
+  color: hsl(160 84% 50%);
+}
