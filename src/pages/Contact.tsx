@@ -2,17 +2,10 @@ import { useState } from "react";
 import {
   Mail,
   Github,
-<<<<<<< HEAD
   Twitter,
   MapPin,
   Send,
   PhoneCall,
-=======
-  Linkedin,
-  Twitter,
-  MapPin,
-  Send,
->>>>>>> c07ddef9104b696d265dc6e531a6ef03aef09797
   CheckCircle2,
 } from "lucide-react";
 import SectionHeader from "@/components/features/SectionHeader";
@@ -45,11 +38,7 @@ const Contact = () => {
       color: "text-[hsl(264_80%_70%)]",
     },
     {
-<<<<<<< HEAD
       icon: PhoneCall,
-=======
-      icon: Linkedin,
->>>>>>> c07ddef9104b696d265dc6e531a6ef03aef09797
       label: t("contact"),
       value: "0911-891-7493",
       color: "text-[hsl(318_90%_90%)]",
@@ -144,7 +133,6 @@ const Contact = () => {
               </div>
               <div className="flex gap-3 flex-wrap">
                 {[
-<<<<<<< HEAD
                   {
                     icon: Github,
                     href: "https://github.com/thehelenlri",
@@ -154,18 +142,6 @@ const Contact = () => {
                     icon: PhoneCall,
                     href: "tel:0911 891 7493",
                     label: " +98 0911-891-7493 ",
-=======
-                  { icon: Github, href: "https://github.com", label: "GitHub" },
-                  {
-                    icon: Linkedin,
-                    href: "https://linkedin.com",
-                    label: "LinkedIn",
-                  },
-                  {
-                    icon: Twitter,
-                    href: "https://twitter.com",
-                    label: "Twitter",
->>>>>>> c07ddef9104b696d265dc6e531a6ef03aef09797
                   },
                 ].map(({ icon: Icon, href, label }) => (
                   <a
