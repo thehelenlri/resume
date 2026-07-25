@@ -41,6 +41,7 @@ const Contact = () => {
       icon: PhoneCall,
       label: t("contact"),
       value: "0911-891-7493",
+      href: "tel:0911 891 7493",
       color: "text-[hsl(318_90%_90%)]",
     },
     {
