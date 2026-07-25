@@ -41,7 +41,7 @@ const Contact = () => {
       icon: Linkedin,
       label: t("contact"),
       value: "0911-891-7493",
-      color: "text-[hsl(160_84%_50%)]",
+      color: "text-[hsl(318_90%_90%)]",
     },
     {
       icon: MapPin,
@@ -176,7 +176,7 @@ const Contact = () => {
           <div className="glass rounded-2xl p-8">
             {submitted ? (
               <div className="h-full flex flex-col items-center justify-center text-center space-y-4 py-12">
-                <CheckCircle2 size={48} className="text-[hsl(160_84%_50%)]" />
+                <CheckCircle2 size={48} className="text-[hsl(318_90%_90%)]" />
                 <h3 className="text-xl font-bold text-foreground">
                   {t("contact.sent")}
                 </h3>

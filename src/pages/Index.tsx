@@ -1,5 +1,15 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Download, Github, Linkedin, Twitter, Sparkles, Zap, Code2, Layers } from "lucide-react";
+import {
+  ArrowRight,
+  Download,
+  Github,
+  Linkedin,
+  Twitter,
+  Sparkles,
+  Zap,
+  Code2,
+  Layers,
+} from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -29,7 +39,7 @@ const Index = () => {
       icon: Zap,
       title: t("home.performance"),
       desc: t("home.performanceDesc"),
-      color: "text-[hsl(160_84%_50%)]",
+      color: "text-[hsl(318_90%_90%)]",
     },
   ];
 
@@ -74,13 +84,20 @@ const Index = () => {
                 <p className="font-mono text-sm text-muted-foreground tracking-widest uppercase">
                   {t("home.hello")}
                 </p>
+
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-none">
-                  <span className="text-foreground">Helen</span>
+                  <span className="text-foreground">
+                    {t("home.name").split(" ")[0]}
+                  </span>
                   <br />
-                  <span className="gradient-text">Langari</span>
+                  <span className="gradient-text">
+                    {t("home.name").split(" ")[1]}
+                  </span>
                 </h1>
+
                 <div className="flex items-center gap-3">
                   <div className="h-px flex-1 bg-gradient-to-r from-primary/50 to-transparent max-w-12" />
+
                   <p className="text-xl md:text-2xl font-semibold text-muted-foreground">
                     {t("home.role")}
                   </p>
@@ -151,9 +168,16 @@ const Index = () => {
             <div className="space-y-6 animate-slide-up stagger-3">
               <div className="grid grid-cols-3 gap-4">
                 {stats.map((s) => (
-                  <div key={s.label} className="glass rounded-2xl p-4 text-center glass-hover">
-                    <div className="text-3xl font-black gradient-text">{s.value}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{s.label}</div>
+                  <div
+                    key={s.label}
+                    className="glass rounded-2xl p-4 text-center glass-hover"
+                  >
+                    <div className="text-3xl font-black gradient-text">
+                      {s.value}
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1">
+                      {s.label}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -164,12 +188,18 @@ const Index = () => {
                     key={card.title}
                     className="glass glass-hover rounded-xl p-4 flex items-center gap-4"
                   >
-                    <div className={`w-10 h-10 rounded-lg bg-muted/50 flex items-center justify-center ${card.color}`}>
+                    <div
+                      className={`w-10 h-10 rounded-lg bg-muted/50 flex items-center justify-center ${card.color}`}
+                    >
                       <card.icon size={20} />
                     </div>
                     <div>
-                      <div className="font-semibold text-foreground text-sm">{card.title}</div>
-                      <div className="text-xs text-muted-foreground">{card.desc}</div>
+                      <div className="font-semibold text-foreground text-sm">
+                        {card.title}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        {card.desc}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -178,11 +208,15 @@ const Index = () => {
               <div className="glass rounded-2xl p-5 glow animate-pulse-glow">
                 <div className="flex items-start justify-between">
                   <div>
-                    <div className="font-mono text-xs text-muted-foreground mb-1">{t("home.currentStatus")}</div>
+                    <div className="font-mono text-xs text-muted-foreground mb-1">
+                      {t("home.currentStatus")}
+                    </div>
                     <div className="font-bold text-foreground">
                       {t("home.currentRole")}
                     </div>
-                    <div className="text-sm text-muted-foreground mt-1">{t("home.ageExp")}</div>
+                    <div className="text-sm text-muted-foreground mt-1">
+                      {t("home.ageExp")}
+                    </div>
                   </div>
                   <div className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse mt-1" />
                 </div>
@@ -202,8 +236,13 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {quickSkills.map((s) => (
-              <div key={s.tech} className="glass glass-hover rounded-xl p-4 text-center space-y-2">
-                <div className="font-bold text-foreground text-sm">{s.tech}</div>
+              <div
+                key={s.tech}
+                className="glass glass-hover rounded-xl p-4 text-center space-y-2"
+              >
+                <div className="font-bold text-foreground text-sm">
+                  {s.tech}
+                </div>
                 <div className="text-2xl font-black gradient-text">{s.pct}</div>
                 <div className="text-xs text-muted-foreground">{s.level}</div>
               </div>
@@ -220,9 +259,7 @@ const Index = () => {
             <span className="gradient-text">{t("home.ctaHighlight")}</span>{" "}
             {t("home.ctaTail")}
           </h2>
-          <p className="text-muted-foreground text-lg">
-            {t("home.ctaDesc")}
-          </p>
+          <p className="text-muted-foreground text-lg">{t("home.ctaDesc")}</p>
           <div className="flex justify-center gap-4">
             <Link
               to="/contact"

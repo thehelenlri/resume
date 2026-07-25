@@ -40,14 +40,16 @@ const NotFound = () => {
           </div>
           <div className="text-destructive">{t("404.notFound")}</div>
           <div className="text-muted-foreground text-xs">{t("404.moved")}</div>
-          <div className="text-[hsl(160_84%_50%)] animate-pulse">▋</div>
+          <div className="text-[hsl(318_90%_90%)] animate-pulse">▋</div>
         </div>
 
         <p className="text-muted-foreground">{t("404.desc")}</p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link to="/"
-            className="btn-primary flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-background">
+          <Link
+            to="/"
+            className="btn-primary flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-background"
+          >
             <Home size={16} />
             {t("404.home")}
           </Link>
@@ -66,8 +68,11 @@ const NotFound = () => {
             { href: "/about", key: "nav.about" },
             { href: "/contact", key: "nav.contact" },
           ].map((link) => (
-            <Link key={link.href} to={link.href}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors font-mono">
+            <Link
+              key={link.href}
+              to={link.href}
+              className="text-sm text-muted-foreground hover:text-primary transition-colors font-mono"
+            >
               ~/{t(link.key).toLowerCase()}
             </Link>
           ))}

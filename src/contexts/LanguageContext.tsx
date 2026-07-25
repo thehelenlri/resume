@@ -34,10 +34,11 @@ export const translations: Record<Lang, Record<string, string>> = {
     "footer.quicklinks": "Quick Links",
     "footer.connect": "Connect",
     "footer.rights": "Helen Langari. Built with",
-    "footer.status": "v1.0.0 — Available for opportunities",
+    "footer.status": " Available for opportunities",
 
     // Home
     "home.available": "Available for opportunities",
+    "home.name": "Helen Langari",
     "home.hello": "Hello, I'm",
     "home.role": "Frontend Developer",
     "home.intro": "Specializing in",
@@ -59,7 +60,6 @@ export const translations: Record<Lang, Record<string, string>> = {
     "home.currentStatus": "Current Status",
     "home.currentRole": "Frontend Dev @ Webcore",
     "home.ageExp": "18 y/o · + 3 years experience",
-    "home.scroll": "scroll",
     "home.cta": "Let's build something",
     "home.ctaHighlight": "amazing",
     "home.ctaTail": "together",
@@ -321,6 +321,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "resume.download": "Download PDF",
     "resume.downloadFull": "Download Full Resume (PDF)",
     "resume.toast": "Resume PDF download would be triggered here.",
+    "resume.name": "Helen Langari",
     "resume.jobTitle": "Frontend Developer",
     "resume.bio":
       "18-year-old Frontend Developer with 3 years of professional experience. Specializing in React, Next.js, and TypeScript. Passionate about building modern, performant, and user-centric web interfaces.",
@@ -378,6 +379,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     // Home
     "home.available": "آماده همکاری",
     "home.hello": "سلام، من",
+    "home.name": "هلن لنگری",
+    // "about.name": "هلن لنگری",
     "home.role": "توسعه‌دهنده فرانت‌اند",
     "home.intro": "متخصص در",
     "home.intro2": "و",
@@ -397,7 +400,6 @@ export const translations: Record<Lang, Record<string, string>> = {
     "home.currentStatus": "وضعیت فعلی",
     "home.currentRole": "توسعه‌دهنده فرانت‌اند در وبکور",
     "home.ageExp": "۱۸ ساله · + ۳ سال تجربه",
-    "home.scroll": "اسکرول",
     "home.cta": "بیایید چیزی",
     "home.ctaHighlight": "فوق‌العاده",
     "home.ctaTail": "بسازیم",
@@ -641,7 +643,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "contact.required": "لطفاً تمام فیلدهای الزامی را پر کنید.",
     "contact.success": "پیام ارسال شد! به زودی پاسخ می‌دهم.",
     "contact.sent": "پیام ارسال شد!",
-    "contact.sentDesc": "ممنون از تماستان. در ۲۴ ساعت پاسخ می‌دهم.",
+    "contact.sentDesc": "ممنون از پیامتان. در ۲۴ ساعت پاسخ می‌دهم.",
     "contact.sendAnother": "ارسال پیام جدید",
 
     // Resume
@@ -652,6 +654,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     "resume.download": "دانلود PDF",
     "resume.downloadFull": "دانلود رزومه کامل (PDF)",
     "resume.toast": "دانلود PDF رزومه اینجا اجرا می‌شود.",
+    "resume.name": "هلن لنگری",
+
     "resume.jobTitle": "توسعه‌دهنده فرانت‌اند",
     "resume.bio":
       "توسعه‌دهنده فرانت‌اند ۱۸ ساله با ۳ سال تجربه حرفه‌ای. متخصص React، Next.js و TypeScript. علاقه‌مند به ساخت رابط‌های کاربری مدرن و کاربرمحور.",

@@ -117,7 +117,7 @@ const Resume = () => {
             <div className="flex flex-wrap items-start justify-between gap-6">
               <div className="space-y-2">
                 <h1 className="text-4xl font-black text-foreground">
-                  Helen Langari
+                  {t("resume.name")}
                 </h1>
                 <p className="text-xl text-primary font-semibold">
                   {t("resume.jobTitle")}

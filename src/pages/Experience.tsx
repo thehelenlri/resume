@@ -22,7 +22,7 @@ const Experience = () => {
       icon: Users,
       title: t("exp.h3.title"),
       desc: t("exp.h3.desc"),
-      color: "text-[hsl(160_84%_50%)] bg-[hsl(160_84%_39%/0.1)]",
+      color: "text-[hsl(318_90%_90%)] bg-[hsl(160_84%_39%/0.1)]",
     },
     {
       icon: Zap,
@@ -33,14 +33,32 @@ const Experience = () => {
   ];
 
   const responsibilities = [
-    t("exp.r1"), t("exp.r2"), t("exp.r3"), t("exp.r4"),
-    t("exp.r5"), t("exp.r6"), t("exp.r7"), t("exp.r8"),
+    t("exp.r1"),
+    t("exp.r2"),
+    t("exp.r3"),
+    t("exp.r4"),
+    t("exp.r5"),
+    t("exp.r6"),
+    t("exp.r7"),
+    t("exp.r8"),
   ];
 
   const technologies = [
-    "React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS",
-    "SCSS", "Git", "GitHub", "REST API", "React Query", "Vite",
-    "Webpack", "Figma", "Jira", "Vercel",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "JavaScript",
+    "Tailwind CSS",
+    "SCSS",
+    "Git",
+    "GitHub",
+    "REST API",
+    "React Query",
+    "Vite",
+    "Webpack",
+    "Figma",
+    "Jira",
+    "Vercel",
   ];
 
   return (
@@ -62,9 +80,13 @@ const Experience = () => {
                     <Briefcase size={20} className="text-primary" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-bold text-foreground">{t("exp.role")}</h2>
+                    <h2 className="text-xl font-bold text-foreground">
+                      {t("exp.role")}
+                    </h2>
                     <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                      <span className="text-primary font-semibold">{t("exp.company")}</span>
+                      <span className="text-primary font-semibold">
+                        {t("exp.company")}
+                      </span>
                       <span>·</span>
                       <span>{t("exp.type")}</span>
                     </div>
@@ -84,23 +106,49 @@ const Experience = () => {
           <div className="p-8 space-y-8">
             <div className="grid md:grid-cols-3 gap-4">
               {[
-                { period: t("exp.y2022"), role: t("exp.role2022"), desc: t("exp.desc2022") },
-                { period: t("exp.y2023"), role: t("exp.role2023"), desc: t("exp.desc2023") },
-                { period: t("exp.y2024"), role: t("exp.role2024"), desc: t("exp.desc2024") },
+                {
+                  period: t("exp.y2022"),
+                  role: t("exp.role2022"),
+                  desc: t("exp.desc2022"),
+                },
+                {
+                  period: t("exp.y2023"),
+                  role: t("exp.role2023"),
+                  desc: t("exp.desc2023"),
+                },
+                {
+                  period: t("exp.y2024"),
+                  role: t("exp.role2024"),
+                  desc: t("exp.desc2024"),
+                },
               ].map((item) => (
-                <div key={item.period} className="p-5 rounded-xl bg-muted/30 space-y-2">
-                  <div className="font-mono text-xs text-primary">{item.period}</div>
-                  <div className="font-bold text-foreground text-sm">{item.role}</div>
-                  <div className="text-xs text-muted-foreground leading-relaxed">{item.desc}</div>
+                <div
+                  key={item.period}
+                  className="p-5 rounded-xl bg-muted/30 space-y-2"
+                >
+                  <div className="font-mono text-xs text-primary">
+                    {item.period}
+                  </div>
+                  <div className="font-bold text-foreground text-sm">
+                    {item.role}
+                  </div>
+                  <div className="text-xs text-muted-foreground leading-relaxed">
+                    {item.desc}
+                  </div>
                 </div>
               ))}
             </div>
 
             <div className="space-y-3">
-              <h3 className="font-bold text-foreground font-mono text-sm">{t("exp.responsibilities")}</h3>
+              <h3 className="font-bold text-foreground font-mono text-sm">
+                {t("exp.responsibilities")}
+              </h3>
               <div className="grid sm:grid-cols-2 gap-2">
                 {responsibilities.map((resp) => (
-                  <div key={resp} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <div
+                    key={resp}
+                    className="flex items-start gap-2 text-sm text-muted-foreground"
+                  >
                     <span className="text-primary mt-0.5 flex-shrink-0">▸</span>
                     <span>{resp}</span>
                   </div>
@@ -109,10 +157,14 @@ const Experience = () => {
             </div>
 
             <div className="space-y-3">
-              <h3 className="font-bold text-foreground font-mono text-sm">{t("exp.technologies")}</h3>
+              <h3 className="font-bold text-foreground font-mono text-sm">
+                {t("exp.technologies")}
+              </h3>
               <div className="flex flex-wrap gap-2">
                 {technologies.map((tech) => (
-                  <span key={tech} className="tag text-xs">{tech}</span>
+                  <span key={tech} className="tag text-xs">
+                    {tech}
+                  </span>
                 ))}
               </div>
             </div>
@@ -121,13 +173,20 @@ const Experience = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           {highlights.map(({ icon: Icon, title, desc, color }) => (
-            <div key={title} className="glass glass-hover rounded-xl p-5 space-y-3">
-              <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${color}`}>
+            <div
+              key={title}
+              className="glass glass-hover rounded-xl p-5 space-y-3"
+            >
+              <div
+                className={`w-10 h-10 rounded-lg flex items-center justify-center ${color}`}
+              >
                 <Icon size={18} />
               </div>
               <div>
                 <div className="font-bold text-foreground text-sm">{title}</div>
-                <div className="text-xs text-muted-foreground mt-1 leading-relaxed">{desc}</div>
+                <div className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                  {desc}
+                </div>
               </div>
             </div>
           ))}

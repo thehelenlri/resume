@@ -25,7 +25,9 @@ const ProjectCard = ({
   featuredLabel = "Featured",
 }: ProjectCardProps) => {
   return (
-    <div className={`glass glass-hover rounded-2xl overflow-hidden group ${featured ? "glow" : ""}`}>
+    <div
+      className={`glass glass-hover rounded-2xl overflow-hidden group ${featured ? "glow" : ""}`}
+    >
       {/* Image */}
       <div className="relative overflow-hidden h-48">
         <img
@@ -41,17 +43,14 @@ const ProjectCard = ({
         )}
         <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           {liveUrl && (
-            <a href={liveUrl} target="_blank" rel="noopener noreferrer"
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-12 h-12 glass rounded-full flex items-center justify-center text-foreground hover:text-primary transition-colors"
-              onClick={(e) => e.stopPropagation()}>
+              onClick={(e) => e.stopPropagation()}
+            >
               <ExternalLink size={18} />
-            </a>
-          )}
-          {githubUrl && (
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer"
-              className="w-12 h-12 glass rounded-full flex items-center justify-center text-foreground hover:text-primary transition-colors"
-              onClick={(e) => e.stopPropagation()}>
-              <Github size={18} />
             </a>
           )}
         </div>
@@ -59,26 +58,29 @@ const ProjectCard = ({
 
       {/* Content */}
       <div className="p-5 space-y-3">
-        <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors">{title}</h3>
-        <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
+        <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors">
+          {title}
+        </h3>
+        <p className="text-muted-foreground text-sm leading-relaxed">
+          {description}
+        </p>
         <div className="flex flex-wrap gap-2">
           {techs.map((tech) => (
-            <span key={tech} className="tag text-xs">{tech}</span>
+            <span key={tech} className="tag text-xs">
+              {tech}
+            </span>
           ))}
         </div>
         <div className="flex gap-3 pt-2">
           {liveUrl && (
-            <a href={liveUrl} target="_blank" rel="noopener noreferrer"
-              className="btn-primary flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold text-background">
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold text-background"
+            >
               <ExternalLink size={12} />
               Live Demo
-            </a>
-          )}
-          {githubUrl && (
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer"
-              className="btn-outline flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium text-foreground">
-              <Github size={12} />
-              Source
             </a>
           )}
         </div>

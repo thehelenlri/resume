@@ -8,7 +8,13 @@ interface SkillBarProps {
   delay?: number;
 }
 
-const SkillBar = ({ name, percentage, description, color = "cyan", delay = 0 }: SkillBarProps) => {
+const SkillBar = ({
+  name,
+  percentage,
+  description,
+  color = "cyan",
+  delay = 0,
+}: SkillBarProps) => {
   const [width, setWidth] = useState(0);
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -21,7 +27,7 @@ const SkillBar = ({ name, percentage, description, color = "cyan", delay = 0 }: 
           setTimeout(() => setWidth(percentage), delay);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -36,7 +42,7 @@ const SkillBar = ({ name, percentage, description, color = "cyan", delay = 0 }: 
   const colors = {
     cyan: "text-[hsl(186_100%_42%)]",
     purple: "text-[hsl(264_80%_70%)]",
-    emerald: "text-[hsl(160_84%_50%)]",
+    emerald: "text-[hsl(318_90%_90%)]",
   };
 
   return (
@@ -45,8 +51,12 @@ const SkillBar = ({ name, percentage, description, color = "cyan", delay = 0 }: 
       className={`space-y-2 transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
     >
       <div className="flex items-center justify-between">
-        <span className="font-semibold text-foreground font-mono text-sm">{name}</span>
-        <span className={`font-bold text-sm font-mono ${colors[color]}`}>{percentage}%</span>
+        <span className="font-semibold text-foreground font-mono text-sm">
+          {name}
+        </span>
+        <span className={`font-bold text-sm font-mono ${colors[color]}`}>
+          {percentage}%
+        </span>
       </div>
       <div className="progress-bar">
         <div
