@@ -33,7 +33,7 @@ export const translations: Record<Lang, Record<string, string>> = {
       "Frontend Developer specializing in React, Next.js and TypeScript. Crafting modern digital experiences.",
     "footer.quicklinks": "Quick Links",
     "footer.connect": "Connect",
-    "footer.rights": "Helen Langari. Built with",
+    "footer.rights": "Helen Langari. Built with ",
 
     // Home
     "home.available": "Available for opportunities",
