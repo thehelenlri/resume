@@ -2,10 +2,10 @@ import { useState } from "react";
 import {
   Mail,
   Github,
-  Linkedin,
   Twitter,
   MapPin,
   Send,
+  PhoneCall,
   CheckCircle2,
 } from "lucide-react";
 import SectionHeader from "@/components/features/SectionHeader";
@@ -38,7 +38,7 @@ const Contact = () => {
       color: "text-[hsl(264_80%_70%)]",
     },
     {
-      icon: Linkedin,
+      icon: PhoneCall,
       label: t("contact"),
       value: "0911-891-7493",
       color: "text-[hsl(318_90%_90%)]",
@@ -133,16 +133,15 @@ const Contact = () => {
               </div>
               <div className="flex gap-3 flex-wrap">
                 {[
-                  { icon: Github, href: "https://github.com", label: "GitHub" },
                   {
-                    icon: Linkedin,
-                    href: "https://linkedin.com",
-                    label: "LinkedIn",
+                    icon: Github,
+                    href: "https://github.com/thehelenlri",
+                    label: "GitHub",
                   },
                   {
-                    icon: Twitter,
-                    href: "https://twitter.com",
-                    label: "Twitter",
+                    icon: PhoneCall,
+                    href: "tel:0911 891 7493",
+                    label: " +98 0911-891-7493 ",
                   },
                 ].map(({ icon: Icon, href, label }) => (
                   <a

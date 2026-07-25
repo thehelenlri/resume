@@ -88,11 +88,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             © {currentYear} {t("footer.rights")}
-            <Heart size={12} className="text-red-400 mx-1" />
             React
-          </p>
-          <p className="text-xs text-muted-foreground font-mono">
-            {t("footer.status")}
           </p>
         </div>
       </div>
