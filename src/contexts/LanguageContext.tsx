@@ -511,7 +511,7 @@ export const translations: Record<Lang, Record<string, string>> = {
       "داستان پشت هر پروژه: چالش‌ها، تصمیمات و نتایج.",
     "projects.challenge": "// چالش",
     "projects.outcome": "// نتیجه",
-    "projects.viewLive": "مشاهده زنده",
+    "projects.viewLive": "مشاهده ",
     "projects.featured": "ویژه",
 
     "proj.arch.title": "وب‌سایت معماری",
