@@ -146,19 +146,19 @@ const Index = () => {
               </div>
 
               <div className="flex items-center gap-4">
-                {[
-                  { icon: Github, href: "https://github.com" },
-                ].map(({ icon: Icon, href }, i) => (
-                  <a
-                    key={i}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-all duration-200 hover:-translate-y-1"
-                  >
-                    <Icon size={20} />
-                  </a>
-                ))}
+                {[{ icon: Github, href: "https://github.com/thehelenlri" }].map(
+                  ({ icon: Icon, href }, i) => (
+                    <a
+                      key={i}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-all duration-200 hover:-translate-y-1"
+                    >
+                      <Icon size={20} />
+                    </a>
+                  ),
+                )}
               </div>
             </div>
 
