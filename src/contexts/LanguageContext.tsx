@@ -126,14 +126,6 @@ export const translations: Record<Lang, Record<string, string>> = {
     "timeline.t3.org": "Webcore",
     "timeline.t3.desc":
       "Started professional journey at Webcore. Worked on building UI components, fixing bugs, and learning best practices for modern web development.",
-    "timeline.t4.year": "2024",
-    "timeline.t4.title": "Self-taught React & TypeScript",
-    "timeline.t4.desc":
-      "Deep-dived into React ecosystem, TypeScript, and modern JavaScript. Built personal projects to solidify understanding of frontend architecture.",
-    "timeline.t5.year": "2023",
-    "timeline.t5.title": "Started Coding Journey",
-    "timeline.t5.desc":
-      "At age 15, discovered a passion for web development. Started with HTML, CSS, and JavaScript fundamentals, building small projects to learn.",
 
     // Skills
     "skills.badge": "// skills.tsx",
@@ -466,15 +458,6 @@ export const translations: Record<Lang, Record<string, string>> = {
     "timeline.t3.org": "وبکور",
     "timeline.t3.desc":
       "شروع مسیر حرفه‌ای در وبکور. ساخت کامپوننت‌های UI، رفع باگ و یادگیری بهترین روش‌های توسعه وب مدرن.",
-    "timeline.t4.year": "۱۴۰۰",
-    "timeline.t4.title": "یادگیری خودآموز React و TypeScript",
-    "timeline.t4.desc":
-      "غواصی عمیق در اکوسیستم React، TypeScript و JavaScript مدرن. ساخت پروژه‌های شخصی برای تثبیت درک معماری فرانت‌اند.",
-    "timeline.t5.year": "۱۴۰۰",
-    "timeline.t5.title": "شروع سفر کدنویسی",
-    "timeline.t5.desc":
-      "در سن ۱۵ سالگی، علاقه به توسعه وب را کشف کردم. با مبانی HTML، CSS و JavaScript شروع کردم و پروژه‌های کوچک ساختم.",
-
     // Skills
     "skills.badge": "// skills.tsx",
     "skills.title": "مهارت‌های",

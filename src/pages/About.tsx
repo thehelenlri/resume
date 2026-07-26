@@ -32,20 +32,6 @@ const About = () => {
       tags: ["HTML/CSS", "JavaScript", "React"],
       type: "work" as const,
     },
-    {
-      year: t("timeline.t4.year"),
-      title: t("timeline.t4.title"),
-      description: t("timeline.t4.desc"),
-      tags: ["Self-learning", "React", "TypeScript"],
-      type: "education" as const,
-    },
-    {
-      year: t("timeline.t5.year"),
-      title: t("timeline.t5.title"),
-      description: t("timeline.t5.desc"),
-      tags: ["HTML", "CSS", "JavaScript"],
-      type: "education" as const,
-    },
   ];
 
   const values = [
