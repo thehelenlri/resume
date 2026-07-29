@@ -80,7 +80,6 @@ const ProjectCard = ({
               className="btn-primary flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold text-background"
             >
               <ExternalLink size={12} />
-              Live Demo
             </a>
           )}
         </div>
