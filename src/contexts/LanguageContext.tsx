@@ -19,7 +19,7 @@ const LanguageContext = createContext<LanguageContextType>({
 export const translations: Record<Lang, Record<string, string>> = {
   en: {
     // Navbar
-    "nav.home": "Home",
+    "nav.home": "Home", 
     "nav.about": "About",
     "nav.skills": "Skills",
     "nav.projects": "Projects",
