@@ -7,8 +7,8 @@ const Footer = () => {
   const { t } = useLanguage();
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Mail, href: "mailto:helen@example.com", label: "Email" },
+    { icon: Github, href: "https://github.com/thehelenlri", label: "GitHub" },
+    { icon: Mail, href: "helenlangari@gmail.com", label: "Email" },
   ];
 
   const quickLinks = [
