@@ -35,14 +35,14 @@ const Contact = () => {
       label: t("contact.github"),
       value: "https://github.com/thehelenlri",
       href: "https://github.com/thehelenlri",
-      color: "text-[hsl(264_80%_70%)]",
+      color: "text-[hsl(107_11.4%_58.8%))]",
     },
     {
       icon: PhoneCall,
       label: t("contact"),
       value: "0911-891-7493",
       href: "tel:0911 891 7493",
-      color: "text-[hsl(318_90%_90%)]",
+      color: "text-[hsl(0_0.0%_79.6%)]",
     },
     {
       icon: MapPin,
@@ -176,7 +176,7 @@ const Contact = () => {
           <div className="glass rounded-2xl p-8">
             {submitted ? (
               <div className="h-full flex flex-col items-center justify-center text-center space-y-4 py-12">
-                <CheckCircle2 size={48} className="text-[hsl(318_90%_90%)]" />
+                <CheckCircle2 size={48} className="text-[hsl(0_0.0%_79.6%)]" />
                 <h3 className="text-xl font-bold text-foreground">
                   {t("contact.sent")}
                 </h3>

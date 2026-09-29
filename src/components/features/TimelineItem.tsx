@@ -18,7 +18,7 @@ const TimelineItem = ({
   type = "work",
 }: TimelineItemProps) => {
   const dotColors = {
-    work: "bg-[hsl(186_100%_42%)] shadow-[0_0_12px_hsl(186_100%_42%/0.6)]",
+    work: "bg-[hsl(186_100%_42%)] shadow-[0_0_12px_hsl(16_100%_42%/0.6)]",
     education: "bg-[hsl(264_80%_60%)] shadow-[0_0_12px_hsl(264_80%_60%/0.6)]",
     achievement: "bg-[hsl(160_84%_39%)] shadow-[0_0_12px_hsl(160_84%_39%/0.6)]",
   };

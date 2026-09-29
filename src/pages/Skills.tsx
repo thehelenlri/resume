@@ -5,8 +5,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const colorMap = {
   cyan: "text-[hsl(186_100%_42%)] bg-[hsl(186_100%_42%/0.1)]",
-  purple: "text-[hsl(264_80%_70%)] bg-[hsl(264_80%_60%/0.1)]",
-  emerald: "text-[hsl(318_90%_90%)] bg-[hsl(160_84%_39%/0.1)]",
+  purple: "text-[hsl(107_11.4%_58.8%))] bg-[hsl(264_80%_60%/0.1)]",
+  emerald: "text-[hsl(0_0.0%_79.6%)] bg-[hsl(160_84%_39%/0.1)]",
 };
 
 const techStack = [

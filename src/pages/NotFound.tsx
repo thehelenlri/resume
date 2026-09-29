@@ -40,7 +40,7 @@ const NotFound = () => {
           </div>
           <div className="text-destructive">{t("404.notFound")}</div>
           <div className="text-muted-foreground text-xs">{t("404.moved")}</div>
-          <div className="text-[hsl(318_90%_90%)] animate-pulse">▋</div>
+          <div className="text-[hsl(0_0.0%_79.6%)] animate-pulse">▋</div>
         </div>
 
         <p className="text-muted-foreground">{t("404.desc")}</p>

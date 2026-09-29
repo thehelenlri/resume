@@ -33,13 +33,13 @@ const Index = () => {
       icon: Layers,
       title: t("home.modernStack"),
       desc: t("home.modernStackDesc"),
-      color: "text-[hsl(264_80%_70%)]",
+      color: "text-[hsl(107_11.4%_58.8%))]",
     },
     {
       icon: Zap,
       title: t("home.performance"),
       desc: t("home.performanceDesc"),
-      color: "text-[hsl(318_90%_90%)]",
+      color: "text-[hsl(0_0.0%_79.6%)]",
     },
   ];
 

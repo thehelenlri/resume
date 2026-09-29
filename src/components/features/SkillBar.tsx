@@ -34,15 +34,15 @@ const SkillBar = ({
   }, [percentage, delay]);
 
   const gradients = {
-    cyan: "linear-gradient(90deg, hsl(186 100% 42%), hsl(186 100% 60%))",
-    purple: "linear-gradient(90deg, hsl(264 80% 60%), hsl(264 80% 75%))",
+    cyan: "linear-gradient(90deg, hsl(125 16.4% 45.5%), hsl(186 100% 60%))",
+    purple: "linear-gradient(90deg, hsl(180 100.0% 23.7%), hsl(264 80% 75%))",
     emerald: "linear-gradient(90deg, hsl(160 84% 39%), hsl(160 84% 55%))",
   };
 
   const colors = {
     cyan: "text-[hsl(186_100%_42%)]",
-    purple: "text-[hsl(264_80%_70%)]",
-    emerald: "text-[hsl(318_90%_90%)]",
+    purple: "text-[hsl(107_11.4%_58.8%)]",
+    emerald: "text-[hsl(0_0.0%_79.6%)]",
   };
 
   return (

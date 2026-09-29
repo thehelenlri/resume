@@ -109,7 +109,7 @@ const Projects = () => {
                       </p>
                     </div>
                     <div className="p-3 rounded-lg bg-muted/30">
-                      <div className="text-xs font-semibold text-[hsl(318_90%_90%)] mb-1 font-mono">
+                      <div className="text-xs font-semibold text-[hsl(0_0.0%_79.6%)] mb-1 font-mono">
                         {t("projects.outcome")}
                       </div>
                       <p className="text-sm text-muted-foreground">
