@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Temporary files and backups
+*.backup
+*.bak
+*.log
+.resume-backups/
+node_modules/
+dist/
+.vercel/
+.env
+.env.*
+!.env.example

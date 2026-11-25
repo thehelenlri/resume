@@ -1,20 +1,27 @@
+﻿import { useHomeEffects } from "./useHomeEffects";
 import { Link } from "react-router-dom";
 import {
+  ArrowUpRight,
   ArrowRight,
+  ArrowDown,
   Download,
   Github,
-  Linkedin,
-  Twitter,
-  Sparkles,
-  Zap,
   Code2,
   Layers,
+  Zap,
+  Terminal,
+  Activity,
+  Globe2,
+  Sparkles,
 } from "lucide-react";
+
 import heroBg from "@/assets/hero-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
+import "./HomePremium.css";
 
 const Index = () => {
-  const { t } = useLanguage();
+  useHomeEffects();
+  const { t, dir } = useLanguage();
 
   const stats = [
     { value: "3+", label: t("home.yearsExp") },
@@ -22,255 +29,335 @@ const Index = () => {
     { value: "100%", label: t("home.passion") },
   ];
 
-  const featuredCards = [
+  const features = [
     {
       icon: Code2,
       title: t("home.cleanCode"),
       desc: t("home.cleanCodeDesc"),
-      color: "text-[hsl(186_100%_42%)]",
     },
     {
       icon: Layers,
       title: t("home.modernStack"),
       desc: t("home.modernStackDesc"),
-      color: "text-[hsl(107_11.4%_58.8%))]",
     },
     {
       icon: Zap,
       title: t("home.performance"),
       desc: t("home.performanceDesc"),
-      color: "text-[hsl(0_0.0%_79.6%)]",
     },
   ];
 
-  const techBadges = ["React", "TypeScript", "Next.js", "Tailwind CSS", "Git"];
-
-  const quickSkills = [
-    { tech: "React / Next.js", level: t("home.advanced"), pct: "90%" },
-    { tech: "TypeScript", level: t("home.advanced"), pct: "85%" },
-    { tech: "Tailwind CSS", level: t("home.expert"), pct: "95%" },
-    { tech: "API Integration", level: t("home.intermediate"), pct: "80%" },
+  const technologies = [
+    "React",
+    "TypeScript",
+    "Next.js",
+    "Tailwind CSS",
+    "Git",
   ];
 
+  const skills = [
+    {
+      name: "React / Next.js",
+      level: t("home.advanced"),
+      percent: 90,
+    },
+    {
+      name: "TypeScript",
+      level: t("home.advanced"),
+      percent: 85,
+    },
+    {
+      name: "Tailwind CSS",
+      level: t("home.expert"),
+      percent: 95,
+    },
+    {
+      name: "API Integration",
+      level: t("home.intermediate"),
+      percent: 80,
+    },
+  ];
+
+  const name = t("home.name").split(" ");
+  const firstName = name.shift();
+
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
+    <main className="hp-root" dir={dir}>
+      <section className="hp-hero">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="hp-hero-image"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
-        <div className="absolute inset-0 bg-background/75" />
-        <div className="absolute inset-0 mesh-gradient" />
 
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/5 blur-3xl animate-float" />
-        <div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-secondary/5 blur-3xl animate-float"
-          style={{ animationDelay: "3s" }}
-        />
+        <div className="hp-grid-bg" />
+        <div className="hp-orb hp-orb-one" />
+        <div className="hp-orb hp-orb-two" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left content */}
-            <div className="space-y-8 animate-slide-up">
-              <div className="flex items-center gap-2">
-                <span className="tag flex items-center gap-1.5">
-                  <Sparkles size={10} />
-                  {t("home.available")}
-                </span>
-              </div>
+        <div className="hp-container hp-hero-layout">
+          <div className="hp-intro hp-enter">
 
-              <div className="space-y-3">
-                <p className="font-mono text-sm text-muted-foreground tracking-widest uppercase">
-                  {t("home.hello")}
-                </p>
-
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-none">
-                  <span className="text-foreground">
-                    {t("home.name").split(" ")[0]}
-                  </span>
-                  <br />
-                  <span className="gradient-text">
-                    {t("home.name").split(" ")[1]}
-                  </span>
-                </h1>
-
-                <div className="flex items-center gap-3">
-                  <div className="h-px flex-1 bg-gradient-to-r from-primary/50 to-transparent max-w-12" />
-
-                  <p className="text-xl md:text-2xl font-semibold text-muted-foreground">
-                    {t("home.role")}
-                  </p>
-                </div>
-              </div>
-
-              <p className="text-muted-foreground leading-relaxed text-lg max-w-lg">
-                {t("home.intro")}{" "}
-                <span className="text-primary font-medium">React</span>,{" "}
-                <span className="text-secondary font-medium">Next.js</span>{" "}
-                {t("home.intro2")}{" "}
-                <span className="text-primary font-medium">TypeScript</span>
-                {t("home.intro3")}{" "}
-                <span className="text-foreground font-semibold">Webcore</span>.
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                {techBadges.map((tech) => (
-                  <span key={tech} className="tag font-mono text-xs">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  to="/projects"
-                  className="btn-primary flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-background"
-                >
-                  {t("home.viewProjects")}
-                  <ArrowRight size={16} />
-                </Link>
-                <Link
-                  to="/contact"
-                  className="btn-outline flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-foreground"
-                >
-                  {t("home.getInTouch")}
-                </Link>
-                <Link
-                  to="/resume"
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Download size={16} />
-                  {t("home.resume")}
-                </Link>
-              </div>
-
-              <div className="flex items-center gap-4">
-                {[{ icon: Github, href: "https://github.com/thehelenlri" }].map(
-                  ({ icon: Icon, href }, i) => (
-                    <a
-                      key={i}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-all duration-200 hover:-translate-y-1"
-                    >
-                      <Icon size={20} />
-                    </a>
-                  ),
-                )}
-              </div>
+            <div className="hp-availability">
+              <span className="hp-live-dot" />
+              {t("home.available")}
             </div>
 
-            {/* Right — Stats + Cards */}
-            <div className="space-y-6 animate-slide-up stagger-3">
-              <div className="grid grid-cols-3 gap-4">
-                {stats.map((s) => (
-                  <div
-                    key={s.label}
-                    className="glass rounded-2xl p-4 text-center glass-hover"
-                  >
-                    <div className="text-3xl font-black gradient-text">
-                      {s.value}
-                    </div>
-                    <div className="text-xs text-muted-foreground mt-1">
-                      {s.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <p className="hp-hello">
+              <span className="hp-small-line" />
+              {t("home.hello")}
+            </p>
 
-              <div className="space-y-3">
-                {featuredCards.map((card) => (
-                  <div
-                    key={card.title}
-                    className="glass glass-hover rounded-xl p-4 flex items-center gap-4"
-                  >
-                    <div
-                      className={`w-10 h-10 rounded-lg bg-muted/50 flex items-center justify-center ${card.color}`}
-                    >
-                      <card.icon size={20} />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-foreground text-sm">
-                        {card.title}
-                      </div>
-                      <div className="text-xs text-muted-foreground">
-                        {card.desc}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <h1 className="hp-name">
+              <span>{firstName}</span>
+              <span className="hp-gradient">
+                {name.join(" ")}
+                <span className="hp-name-dot">.</span>
+              </span>
+            </h1>
 
-              <div className="glass rounded-2xl p-5 glow animate-pulse-glow">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <div className="font-mono text-xs text-muted-foreground mb-1">
-                      {t("home.currentStatus")}
-                    </div>
-                    <div className="font-bold text-foreground">
-                      {t("home.currentRole")}
-                    </div>
-                    <div className="text-sm text-muted-foreground mt-1">
-                      {t("home.ageExp")}
-                    </div>
+            <div className="hp-role">
+              <Terminal size={23} />
+              <h2>{t("home.role")}</h2>
+            </div>
+
+            <p className="hp-description">
+              {t("home.intro")}{" "}
+              <strong>React</strong>,{" "}
+              <strong>Next.js</strong>{" "}
+              {t("home.intro2")}{" "}
+              <strong>TypeScript</strong>
+              {t("home.intro3")}{" "}
+              <strong>Webcore</strong>.
+            </p>
+
+            <div className="hp-technologies">
+              {technologies.map((tech) => (
+                <span key={tech}>{tech}</span>
+              ))}
+            </div>
+
+            <div className="hp-actions">
+              <Link
+                className="hp-button hp-primary"
+                to="/projects"
+              >
+                {t("home.viewProjects")}
+                <ArrowUpRight size={18} />
+              </Link>
+
+              <Link
+                className="hp-button hp-secondary"
+                to="/contact"
+              >
+                {t("home.getInTouch")}
+                <ArrowRight
+                  size={17}
+                  className="hp-directional"
+                />
+              </Link>
+            </div>
+
+            <div className="hp-social">
+              <a
+                href="https://github.com/thehelenlri"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="hp-icon-button"
+              >
+                <Github size={21} />
+              </a>
+
+              <span className="hp-social-divider" />
+
+              <Link to="/resume" className="hp-resume-link">
+                <Download size={17} />
+                {t("home.resume")}
+              </Link>
+            </div>
+          </div>
+
+          <div className="hp-dashboard hp-enter hp-delay">
+
+            <div className="hp-dashboard-header">
+              <div className="hp-window-dots">
+                <span />
+                <span />
+                <span />
+              </div>
+              <Activity size={18} />
+            </div>
+
+            <div className="hp-dashboard-body">
+
+              <div className="hp-status-card">
+                <div className="hp-status-top">
+                  <div className="hp-status-icon">
+                    <Terminal size={23} />
                   </div>
-                  <div className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse mt-1" />
+                  <span className="hp-live-dot" />
+                </div>
+
+                <span className="hp-label">
+                  {t("home.currentStatus")}
+                </span>
+
+                <h3>{t("home.currentRole")}</h3>
+                <p>{t("home.ageExp")}</p>
+
+                <div className="hp-status-decoration">
+                  <Code2 size={140} strokeWidth={0.7} />
                 </div>
               </div>
+
+              <div className="hp-stat-grid">
+                {stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="hp-stat-card"
+                  >
+                    <strong dir="ltr">{stat.value}</strong>
+                    <span>{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="hp-feature-list">
+                {features.map((feature, index) => (
+                  <div
+                    key={feature.title}
+                    className="hp-feature-card"
+                  >
+                    <div className="hp-feature-icon">
+                      <feature.icon size={22} />
+                    </div>
+
+                    <div className="hp-feature-content">
+                      <h3>{feature.title}</h3>
+                      <p>{feature.desc}</p>
+                    </div>
+
+                    <span className="hp-feature-number">
+                      0{index + 1}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground">
-          <span className="text-xs font-mono">{t("home.scroll")}</span>
-          <div className="w-px h-8 bg-gradient-to-b from-muted-foreground/50 to-transparent" />
-        </div>
+        <a
+          href="#home-skills"
+          className="hp-scroll"
+          aria-label={t("home.scroll")}
+        >
+          <span>{t("home.scroll")}</span>
+          <ArrowDown size={17} />
+        </a>
       </section>
 
-      {/* Quick Skills Section */}
-      <section className="section-padding mesh-gradient">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {quickSkills.map((s) => (
-              <div
-                key={s.tech}
-                className="glass glass-hover rounded-xl p-4 text-center space-y-2"
-              >
-                <div className="font-bold text-foreground text-sm">
-                  {s.tech}
+      <section className="hp-skills" id="home-skills">
+        <div className="hp-container">
+
+          <div className="hp-section-heading">
+            <div>
+              <div className="hp-section-icon">
+                <Code2 size={20} />
+              </div>
+
+              <h2>
+                {t("skills.title")}{" "}
+                <span className="hp-gradient">
+                  {t("skills.highlight")}
+                </span>
+              </h2>
+
+              <p>{t("skills.subtitle")}</p>
+            </div>
+
+            <Link to="/skills" className="hp-text-link">
+              {t("nav.skills")}
+              <ArrowUpRight size={18} />
+            </Link>
+          </div>
+
+          <div className="hp-skills-grid">
+            {skills.map((skill, index) => (
+              <div key={skill.name} className="hp-skill-card">
+
+                <div className="hp-skill-top">
+                  <div className="hp-skill-icon">
+                    <Code2 size={20} />
+                  </div>
+                  <span className="hp-feature-number">
+                    0{index + 1}
+                  </span>
                 </div>
-                <div className="text-2xl font-black gradient-text">{s.pct}</div>
-                <div className="text-xs text-muted-foreground">{s.level}</div>
+
+                <h3 dir="ltr">{skill.name}</h3>
+
+                <div className="hp-skill-info">
+                  <strong dir="ltr">{skill.percent}%</strong>
+                  <span>{skill.level}</span>
+                </div>
+
+                <div
+                  className="hp-progress"
+                  role="progressbar"
+                  aria-label={skill.name}
+                  aria-valuenow={skill.percent}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                >
+                  <div
+                    style={{ width: `${skill.percent}%` }}
+                  />
+                </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding">
-        <div className="max-w-3xl mx-auto text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            {t("home.cta")}{" "}
-            <span className="gradient-text">{t("home.ctaHighlight")}</span>{" "}
-            {t("home.ctaTail")}
-          </h2>
-          <p className="text-muted-foreground text-lg">{t("home.ctaDesc")}</p>
-          <div className="flex justify-center gap-4">
-            <Link
-              to="/contact"
-              className="btn-primary flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-background text-lg"
-            >
-              {t("home.ctaBtn")}
-              <ArrowRight size={18} />
-            </Link>
+      <section className="hp-cta-section">
+        <div className="hp-container">
+          <div className="hp-cta">
+
+            <div className="hp-cta-glow" />
+
+            <div className="hp-cta-icon">
+              <Globe2 size={34} strokeWidth={1.5} />
+            </div>
+
+            <div className="hp-cta-content">
+              <h2>
+                {t("home.cta")}{" "}
+                <span className="hp-gradient">
+                  {t("home.ctaHighlight")}
+                </span>{" "}
+                {t("home.ctaTail")}
+              </h2>
+
+              <p>{t("home.ctaDesc")}</p>
+
+              <Link
+                to="/contact"
+                className="hp-button hp-primary"
+              >
+                <Sparkles size={17} />
+                {t("home.ctaBtn")}
+                <ArrowUpRight size={18} />
+              </Link>
+            </div>
+
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 };
 
 export default Index;
+

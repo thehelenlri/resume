@@ -1,3 +1,4 @@
+﻿import ScrollToTop from "./components/ScrollToTop";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -24,6 +25,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<Index />} />
@@ -43,3 +45,4 @@ const App = () => (
 );
 
 export default App;
+
