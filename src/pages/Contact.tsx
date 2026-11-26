@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Mail,
@@ -35,6 +35,9 @@ const Contact = () => {
   const [copied, setCopied] = useState("");
   const [copyError, setCopyError] = useState(false);
   const [prepared, setPrepared] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(false);
+  const sendingRef = useRef(false);
 
   const email = "helenlangari@gmail.com";
   const phone = "0911-891-7493";
@@ -124,35 +127,71 @@ const Contact = () => {
     }));
 
     setPrepared(false);
+    setSendError(false);
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    if (!ready) return;
+    if (!ready || sendingRef.current) return;
+
+    sendingRef.current = true;
+    setSending(true);
+    setPrepared(false);
+    setSendError(false);
 
     const subject =
       subjects.find(item => item.value === form.subject)
         ?.label || tr("Portfolio inquiry", "درخواست همکاری");
 
-    const body = [
-      `${tr("Name", "نام")}: ${form.name}`,
-      `${tr("Email", "ایمیل")}: ${form.email}`,
-      "",
-      form.message,
-    ].join("\r\n");
+    const controller = new AbortController();
 
-    const mailto =
-      `mailto:${email}?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`;
+    const timer = window.setTimeout(
+      () => controller.abort(),
+      20000
+    );
 
-    window.location.href = mailto;
-    setPrepared(true);
+    try {
+      const response = await fetch(
+        "https://formspree.io/f/xjywlzvp",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          signal: controller.signal,
+          body: JSON.stringify({
+            name: form.name.trim(),
+            email: form.email.trim(),
+            subject,
+            message: form.message.trim(),
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Formspree error: ${response.status}`);
+      }
+
+      setForm(initialForm);
+      setPrepared(true);
+
+    } catch (error) {
+      console.error("Message submission failed:", error);
+      setSendError(true);
+
+    } finally {
+      window.clearTimeout(timer);
+      sendingRef.current = false;
+      setSending(false);
+    }
   };
 
   const resetForm = () => {
     setForm(initialForm);
     setPrepared(false);
+    setSendError(false);
   };
 
   const copyValue = async (id: string, value: string) => {
@@ -722,7 +761,7 @@ const Contact = () => {
                           autoComplete="name"
                           value={form.name}
                           placeholder={t("contact.namePh")}
-                          onChange={handleChange}
+                          onChange={handleChange} disabled={sending}
                           maxLength={100}
                           required
                         />
@@ -754,7 +793,7 @@ const Contact = () => {
                           autoComplete="email"
                           value={form.email}
                           placeholder={t("contact.emailPh")}
-                          onChange={handleChange}
+                          onChange={handleChange} disabled={sending}
                           maxLength={254}
                           required
                         />
@@ -799,7 +838,7 @@ const Contact = () => {
                             aria-pressed={
                               form.subject === subject.value
                             }
-                            className={`cp-subject${
+                            disabled={sending} className={`cp-subject${
                               form.subject === subject.value
                                 ? " cp-subject-selected"
                                 : ""
@@ -814,6 +853,7 @@ const Contact = () => {
                               }));
 
                               setPrepared(false);
+    setSendError(false);
                             }}
                           >
 
@@ -837,7 +877,7 @@ const Contact = () => {
                       name="subject"
                       className="cp-select"
                       value={form.subject}
-                      onChange={handleChange}
+                      onChange={handleChange} disabled={sending}
                     >
                       <option value="">
                         {t("contact.subjectPh")}
@@ -870,7 +910,7 @@ const Contact = () => {
                         rows={7}
                         maxLength={2000}
                         value={form.message}
-                        onChange={handleChange}
+                        onChange={handleChange} disabled={sending}
                         placeholder={t("contact.messagePh")}
                         required
                       />
@@ -895,14 +935,13 @@ const Contact = () => {
                   <button
                     type="submit"
                     className="cp-button cp-primary cp-submit"
-                    disabled={!ready}
+                    disabled={!ready || sending} aria-busy={sending}
                   >
                     <Send size={18} />
 
-                    {tr(
-                      "Send via email",
-                      "ارسال از طریق ایمیل"
-                    )}
+                    {sending
+                      ? tr("Sending...", "در حال ارسال...")
+                      : tr("Send Message", "ارسال پیام")}
 
                     <ArrowUpRight size={17} />
 
@@ -914,12 +953,39 @@ const Contact = () => {
 
                     <p>
                       {tr(
-                        "Your email application will open with your prepared message. Nothing is sent automatically.",
-                        "برنامه ایمیل شما با متن آماده باز می شود. هیچ پیامی به صورت خودکار ارسال نمی شود."
+                        "Your message will be submitted directly through our contact service.",
+                        "پیام شما مستقیما از طریق سرویس ارتباطی ارسال می شود."
                       )}
                     </p>
 
                   </div>
+
+                  {sendError && (
+                    <div
+                      className="cp-prepared"
+                      role="alert"
+                      style={{
+                        color: "#f87171",
+                        borderColor: "rgba(248,113,113,.4)"
+                      }}
+                    >
+                      <MessageCircle size={23} />
+                      <div>
+                        <strong>
+                          {tr(
+                            "Message submission could not be confirmed",
+                            "ارسال پیام تایید نشد"
+                          )}
+                        </strong>
+                        <p>
+                          {tr(
+                            "Please check your connection and try again.",
+                            "اتصال اینترنت را بررسی کرده و دوباره تلاش کنید."
+                          )}
+                        </p>
+                      </div>
+                    </div>
+                  )}
 
                   {prepared && (
                     <div className="cp-prepared" role="status">
@@ -929,15 +995,15 @@ const Contact = () => {
                       <div>
                         <strong>
                           {tr(
-                            "Message prepared",
-                            "پیام آماده شد"
+                            "Message submitted successfully!",
+                            "پیام با موفقیت ارسال شد!"
                           )}
                         </strong>
 
                         <p>
                           {tr(
-                            "Complete sending in your email application.",
-                            "ارسال پیام را در برنامه ایمیل خود تکمیل کنید."
+                            "Thank you! Your message has been received by the contact service.",
+                            "متشکرم! پیام شما توسط سرویس ارتباطی دریافت شد."
                           )}
                         </p>
                       </div>
@@ -948,7 +1014,7 @@ const Contact = () => {
                   <button
                     type="button"
                     className="cp-reset"
-                    onClick={resetForm}
+                    onClick={resetForm} disabled={sending}
                   >
                     <RotateCcw size={15} />
                     {tr("Clear form", "پاک کردن فرم")}
