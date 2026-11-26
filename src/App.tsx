@@ -1,4 +1,8 @@
-﻿import ScrollToTop from "./components/ScrollToTop";
+import MonochromeTheme from "@/components/layout/MonochromeTheme";
+import "./ResumeTheme.css";
+import ThemeToggle from "@/components/layout/ThemeToggle";
+import { ThemeProvider } from "next-themes";
+import ScrollToTop from "./components/ScrollToTop";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -19,14 +23,22 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const App = () => (
+  <ThemeProvider
+    attribute="class"
+    defaultTheme="dark"
+    enableSystem={false}
+    storageKey="resume-theme"
+  >
   <LanguageProvider>
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <MonochromeTheme />
         <ScrollToTop />
         <Navbar />
+        <ThemeToggle />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
@@ -42,6 +54,7 @@ const App = () => (
     </TooltipProvider>
   </QueryClientProvider>
   </LanguageProvider>
+  </ThemeProvider>
 );
 
 export default App;

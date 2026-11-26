@@ -38,3 +38,7 @@ dist/
 .env*
 .contact-backups/
 *.backup.*
+
+.theme-backups/
+
+.theme-fixes/
